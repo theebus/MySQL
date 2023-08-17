@@ -6,4 +6,4 @@
 
 
 #### Date difference Easy Code file
-This file contain more easy way to find differet of two date values.
+<p> This file contain more easy way to find differet of two date values. </p>
