@@ -1,0 +1,27 @@
+select 
+g.date,
+g.Supp_Name,
+pr.BusinessName,
+pr.Address1,
+pr.Address2,
+pr.Address3,
+pr.PhoneDirect,
+gi.GRN_CustomId,
+gi.Item_Id,
+gi.Item_Name,
+Psm.category,
+psm.Warehouse_CustomID,
+gi.GRN_CustomID,
+(psm.Available_Qty - gi.Qty) AS Previous_Qty,
+(gi.Qty),
+(psm.Available_Qty) AS Total_Qty
+from grn_items gi
+join products_stock_management psm ON gi.Item_ID = psm.Product_ID
+JOIN grn g on g.GRN_CustomID = gi.GRN_CustomID
+Join printerreports pr
+ WHERE  g.GRN_CustomID = "REC-00281"
+ group by gi.Item_Id
+order by gi.GRN_CustomID
+
+
+
